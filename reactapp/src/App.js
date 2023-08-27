@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import {useState} from 'react';
 import './App.css';
 
 function App() {
@@ -9,7 +9,12 @@ function App() {
   return (
     <div className="App">
       <h1>Quizz App</h1>
-      <button onClick={handleClick}>{QuizzStarted? "Show Results" : "Start Quiz"}</button>
+      {
+      QuizzStarted? 
+        <button onClick={handleClick}>Show Results</button> 
+        : 
+        <button onClick={handleClick}>Start Quiz</button>
+      }
     </div>
   );
 }
