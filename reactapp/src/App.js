@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <h1>Quizz App</h1>
-      <button onclick= {}>Start Quiz</button>
+      <button onClick={handleClick}>{QuizzStarted? "Show Results" : "Start Quiz"}</button>
     </div>
   );
 }
