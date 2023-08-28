@@ -87,25 +87,14 @@ function App() {
   function handleStart()
   {
     setStartFlag(true);
-    setButtonText('Started');
   }
 
   if(startFlag)
   {
     qCards = 
-    <div>
-      {
-        questionData.map((data) => 
-          <Card question= {data.question} options = {{
-            option1 : data.options.option1,
-            option2 : data.options.option2,
-            option3 : data.options.option3,
-            option4 : data.options.option4,
-          }} > </Card>)
-      }
-    </div> 
+     
 
-    startBtn = <></>;
+    startBtn = <Button onClick={setStartFlag(false)}>Show Results</Button>;
   }
   else
   {
@@ -117,8 +106,18 @@ function App() {
       <h1>
         Quizz App
       </h1>
-      {qCards}
-      {startBtn}
+      {startFlag ? <div>
+      {
+        questionData.map((data) => 
+          <Card question= {data.question} options = {{
+            option1 : data.options.option1,
+            option2 : data.options.option2,
+            option3 : data.options.option3,
+            option4 : data.options.option4,
+          }} > </Card>)
+      }
+    </div> : null}
+      {startFlag ? <Button onClick={setStartFlag(false)}>Show Results</Button> : <Button onClick={setStartFlag(true)}>Start Quiz</Button>}
     </div>
   );
 }
